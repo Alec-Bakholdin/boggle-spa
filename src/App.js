@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, BrowserRouter as Router,  } from "react-router-dom"
+import BoggleLobby from './features/BoggleLobby/BoggleLobby';
+import BoggleHome from "./features/BoggleHome/BoggleHome";
+import WebsocketTest from "./features/WebsocketTest/WebsocketTest";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <Router>
+            <Switch>
+                <Route exact path="/" children={<BoggleHome />} />
+                <Route path="/game" children={<BoggleLobby />} />
+                <Route path="/websocket" children={< WebsocketTest/>} />
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
